@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charlotte Krogh</title>
+
+    <style>
+        img {
+            width: 100%;
+        }
+
+        button {
+            border: none;
+            background: none;
+            font-size: 1.3rem;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 30vw 30vw;
+            grid-template-rows: 80px auto;
+            grid-template-areas:
+                "filter filter"
+                "vaerker vaerker";
+            justify-content: center;
+            margin: 200px;
+
+
+        }
+
+
+        #grid {
+            grid-area: vaerker;
+            columns: 4;
+            column-fill: balance;
+            grid-gap: 1rem;
+            text-align: bottom right;
+            margin: 0 auto;
+
+        }
+
+
+
+        /*
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-gap: 0.8rem;
+            grid-template-rows: auto;
+            margin: 8vw 8vw;
+        }
+*/
+
+
+        #knapper {
+            margin: 0 100px;
+            grid-area: filter;
+            display: flex;
+            cursor: pointer;
+            font-size: 1.2rem;
+            justify-content: space-around;
+
+        }
+
+
+        .aarstal {
+            font-size: 0.3rem;
+            font-style: italic;
+            font-family: sans-serif;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav></nav>
+    </header>
+    <main>
+        <article id="knapper">
+            <button class="alle filter valgt" data-filter="alle">Alle</button>
+            <button data-filter="2006" class="filter">2006</button>
+            <button data-filter="2008" class="filter">2008</button>
+            <button data-filter="2009" class="filter">2009</button>
+            <button data-filter="2012" class="filter">2012</button>
+            <button data-filter="2019" class="filter">2019</button>
+        </article>
+        <section id="grid"></section>
+    </main>
+    <template>
+        <article class="gallery">
+            <img class="billede" src="" alt="">
+            <p class="aarstal"></p>
+        </article>
+    </template>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        let filter = "alle";
+        let indhold;
+        let template = document.querySelector("template");
+        let dest = document.querySelector("#grid");
+
+        function start() {
+            console.log(start);
+
+            hentGalleri();
+            hentMenu();
+            const filtrer = document.querySelectorAll(".filter");
+            filtrer.forEach(knap => knap.addEventListener("click", filtrerBilleder));
+
+        }
+
+        async function hentMenu() {
+
+            const voresMenu = await fetch("menu.html");
+            let denHentede = await voresMenu.text();
+            document.querySelector("nav").innerHTML = denHentede;
+            console.log("nav");
+            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+
+        }
+
+        async function hentGalleri() {
+
+            //Henter vores Json fra WP
+            const url = "http://malikgrosos.com/charlottekrogh/wordpress/wp-json/wp/v2/vaerk"
+            //Henter datafilen
+            const minJson = await fetch(url);
+            //Den hentede data skal tolkes som json
+            indhold = await minJson.json();
+            //Vi kalder funktionen der viser data i DOM
+            visIndhold();
+            console.log(hentGalleri);
+        }
+
+        function filtrerBilleder() {
+
+            //Sæt variable filter til aktuel værdi
+
+            //    let valgt = document.querySelector(".valgt");
+
+            //    valgt.classList.remove("valgt");
+
+            filter = this.dataset.filter;
+
+            //    this.classList.add("valgt");
+            console.log(filter);
+            visIndhold();
+
+        }
+
+        function visIndhold() {
+
+            dest.innerHTML = "";
+
+            indhold.forEach(vaerk => {
+                console.log(filter);
+
+                if (vaerk.aar == filter || filter == "alle") { // Filtrere kategorier og kunstnernavn
+
+                    const klon = template.cloneNode(true).content;
+
+                    klon.querySelector("img").src = vaerk.billede.guid;
+                    klon.querySelector(".aarstal").textContent = vaerk.aar;
+                    dest.appendChild(klon);
+                }
+            })
+        }
+    </script>
+</body></html>

@@ -1,0 +1,457 @@
+       /*******************        GENERAL        ***********************/
+
+       * {
+           box-sizing: border-box;
+       }
+
+       img {
+           width: 100%;
+       }
+
+       body {
+           margin: 0;
+       }
+
+       h1,
+       h2,
+       h3 {
+
+           font-family: 'EB Garamond', serif;
+           margin: 0;
+
+       }
+
+       h1 h3 {
+           font-size: 2rem;
+           font-weight: 400;
+
+       }
+
+       button {
+           font-family: 'roboto', sans-serif;
+           font-weight: 100;
+       }
+
+       p {
+           font-family: 'roboto', sans-serif;
+       }
+
+       ul,
+       li {
+           list-style-type: none;
+           padding: 0;
+           margin: 0;
+           font-weight: 100;
+       }
+
+       a,
+       a:link,
+       a:link,
+       a:active {
+           text-decoration: none;
+           color: #000;
+       }
+
+
+
+
+
+
+       /*******************        MENU        ***********************/
+
+       #menu {
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           margin: 20px;
+
+       }
+
+       #menu img {
+           width: 15vw;
+           position: relative;
+           left: -10px;
+       }
+
+       #menu a {
+           font-size: 1rem;
+           text-transform: capitalize;
+       }
+
+
+
+       .dropdown {
+           position: relative;
+           display: inline-block;
+           transition: 1.07s;
+           padding-left: 10px;
+
+       }
+
+       .dropdown:hover {
+           /*    transform: scale(1.07);*/
+           transition: 1.5;
+           border-left: 1px solid #000;
+
+       }
+
+       .dropbtn b {
+           font-weight: normal;
+           font-style: normal;
+       }
+
+       .dropbtn:hover b {
+           font-weight: normal;
+           font-style: normal;
+
+
+
+       }
+
+       .dropdown-content {
+           display: none;
+           position: absolute;
+           padding: 10px;
+
+       }
+
+       .dropdown:hover .dropdown-content {
+           display: block;
+           font-size: 0.4rem;
+           background-color: rgba(255, 255, 255, 0.24);
+
+       }
+
+       #menu .dropdown-content a {
+           display: block;
+           font-size: 1.2rem;
+           padding: 5px;
+           padding-right: 100px;
+
+       }
+
+       .dropdown-content a:hover {
+           border-left: 1px solid #000;
+       }
+
+
+       button:active,
+       button:hover,
+       button:visited {
+           text-decoration: underline;
+       }
+
+       .dropbtn b {
+           position: relative;
+           font-size: 1rem;
+           text-decoration: none;
+
+       }
+
+       /*******************        OM        ***********************/
+
+       #about {
+           display: flex;
+           flex-wrap: wrap;
+           width: 100vw;
+           z-index: 1000;
+
+       }
+
+       #about .txt {
+           flex-basis: 500px;
+           flex-grow: 1;
+           margin: 4vw;
+           z-index: 10000;
+
+       }
+
+       #about .img {
+           flex-basis: 500px;
+           flex-grow: 1;
+           margin: 4vw;
+           z-index: 10000;
+       }
+
+       #about #video {
+           flex-basis: 400px;
+           flex-grow: 2;
+           margin: 0 8vw;
+           z-index: 10000;
+
+       }
+
+       #om #graphics {
+
+           background-image: url(img/graphic.svg);
+           position: absolute;
+           background-size: cover;
+           top: 1200px;
+           left: -300px;
+           width: 41vw;
+           height: 50.3vw;
+           transform: rotate(230deg);
+           z-index: 100;
+           overflow: hidden;
+
+       }
+
+       /*******************        VÆRKER        ***********************/
+
+       button {
+           border: none;
+           background: none;
+           display: block;
+           font-size: 1.5rem;
+           margin: 0;
+           padding: 0;
+       }
+
+       #knapper {
+           margin: 0 37vw;
+           text-align: center;
+           font-size: 1.2rem;
+
+       }
+
+       main {
+           text-align: center;
+           margin: 80px 20px;
+       }
+
+       #grid {
+           columns: 2;
+           column-fill: balance;
+           grid-gap: 1rem;
+           text-align: bottom right;
+           margin: 0 auto;
+
+       }
+
+       /*******************        PRESSE        ***********************/
+
+       .press {
+           margin: 8vw;
+       }
+
+
+
+       /*******************        FOOTER MOBILE        ***********************/
+
+       footer {
+
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           text-align: center;
+           /*           position: absolute;*/
+           font-family: 'roboto', sans-serif;
+           margin: 30px;
+           bottom: 10px;
+
+       }
+
+
+       @media screen and (min-width: 600px) {
+
+           /*******************        MENU        ***********************/
+
+           #menu {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               margin: 20px 300px 30px 300px;
+
+           }
+
+           #menu a {
+               font-size: 1.5rem;
+               text-transform: capitalize;
+           }
+
+
+
+           /*******************        LANDINGPAGE        ***********************/
+
+
+
+           #splash {
+               text-align: center;
+
+               margin: 0 auto;
+               margin-bottom: 50px;
+               background-image: url(img/2008_03.jpg);
+               background-position: center;
+               background-size: cover;
+               height: 35vw;
+               width: 70vw;
+           }
+
+           /*******************        VÆRKER        ***********************/
+
+           button {
+               border: none;
+               background: none;
+               font-size: 1.1rem;
+               cursor: pointer;
+               height: 30px;
+           }
+
+           main {
+               margin: 80px 200px;
+
+
+           }
+
+           #grid {
+               columns: 4;
+               column-fill: balance;
+               grid-gap: 1rem;
+               text-align: bottom right;
+               margin: 0 auto;
+
+           }
+
+           #knapper {
+               margin: 20px 100px;
+               display: flex;
+               font-size: 1.2rem;
+               justify-content: space-around;
+
+           }
+
+
+           .aarstal {
+               font-size: 0.3rem;
+               font-style: italic;
+               font-family: sans-serif;
+               text-align: right;
+           }
+
+           .valgt {
+               display: none;
+
+           }
+
+           /*******************        PRESS        ***********************/
+
+           #presse #graphics {
+               background-image: url(img/graphic.svg);
+               position: absolute;
+               background-size: cover;
+               top: 250px;
+               right: -750px;
+               width: 101vw;
+               height: 82.3vw;
+
+           }
+
+           #press {
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+               grid-template-rows: auto;
+               grid-gap: 8vw 10vw;
+               margin: 10vw 20vw;
+               z-index: 1000;
+               overflow: hidden;
+
+
+           }
+
+           .press {
+               overflow: visible;
+               z-index: 10000;
+           }
+
+           .press img {
+               cursor: pointer;
+           }
+
+
+
+
+           /*******************        CV        ***********************/
+
+
+
+
+           /*******************        FOOTER        ***********************/
+
+           footer {
+
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               text-align: center;
+               /*           position: absolute;*/
+               font-family: 'roboto', sans-serif;
+               margin: 30px 400px 10px 400px;
+               bottom: 10px;
+
+           }
+
+           footer ul li {
+               font-size: 0.7rem;
+           }
+
+
+           /*******************        ANIMATIONER        ***********************/
+           .gooey {
+               position: absolute;
+               top: 50%;
+               left: 50%;
+               width: 142px;
+               height: 40px;
+               margin: -20px 0 0 -71px;
+               background: white;
+               filter: contrast(20);
+           }
+
+
+           .dot {
+               position: absolute;
+               width: 16px;
+               height: 16px;
+               top: 12px;
+               left: 15px;
+               filter: blur(4px);
+               background: #000;
+               border-radius: 50%;
+               transform: translateX(0);
+               animation: dot 2.8s infinite;
+           }
+
+
+
+           .dots {
+               transform: translateX(0);
+               margin-top: 12px;
+               margin-left: 31px;
+               animation: dots 2.8s infinite;
+           }
+
+           span {
+               display: block;
+               float: left;
+               width: 16px;
+               height: 16px;
+               margin-left: 16px;
+               filter: blur(4px);
+               background: #000;
+               border-radius: 50%;
+
+           }
+
+           @keyframes dot {
+               50% {
+                   transform: translateX(96px);
+               }
+           }
+
+           @keyframes dots {
+               50% {
+                   transform: translateX(-31px);
+               }
+           }
+
+       }
