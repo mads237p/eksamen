@@ -10,6 +10,7 @@
 
        body {
            margin: 0;
+
        }
 
        h1,
@@ -18,22 +19,31 @@
 
            font-family: 'EB Garamond', serif;
            margin: 0;
+           color: #1E1C21;
 
        }
 
-       h1 h3 {
+       h2 {
            font-size: 2rem;
-           font-weight: 400;
+           font-weight: 600;
 
        }
 
+       h3 {
+           font-size: 1.5rem;
+           font-weight: 200;
+       }
+
+       figure,
        button {
            font-family: 'roboto', sans-serif;
            font-weight: 100;
+           cursor: pointer;
        }
 
        p {
            font-family: 'roboto', sans-serif;
+           font-weight: 200;
        }
 
        ul,
@@ -42,18 +52,30 @@
            padding: 0;
            margin: 0;
            font-weight: 100;
+           font-family: 'roboto', sans-serif;
        }
 
        a,
        a:link,
        a:link,
        a:active {
+           font-family: 'EB Garamond', serif;
+           font-weight: 600;
            text-decoration: none;
-           color: #000;
+           color: #1E1C21;
        }
 
 
+       a:hover {
+           color: #A6998A;
+       }
 
+       button:active,
+       button:hover,
+       button:visited {
+           font-family: 'roboto', sans-serif;
+           text-decoration: underline;
+       }
 
 
 
@@ -61,85 +83,88 @@
 
        #menu {
            display: flex;
-           justify-content: space-between;
+           justify-content: center;
            align-items: center;
-           margin: 20px;
+           text-align: center;
 
        }
 
        #menu img {
-           width: 15vw;
+           width: 40vw;
            position: relative;
-           left: -10px;
        }
 
-       #menu a {
-           font-size: 1rem;
+       #menu li {
+           font-size: 0.3rem;
            text-transform: capitalize;
+           transition: 0.7s;
+           margin: 0 10px;
        }
 
-
+       #menu li:hover {
+           color: #A6998A;
+       }
 
        .dropdown {
            position: relative;
            display: inline-block;
            transition: 1.07s;
-           padding-left: 10px;
 
        }
 
-       .dropdown:hover {
-           /*    transform: scale(1.07);*/
-           transition: 1.5;
-           border-left: 1px solid #000;
+       #menu #logo {
+
+           margin: 0 -10px 0 0px;
+       }
+
+       #menu a,
+       .dropbtn {
+           font-size: .7rem;
+           font-weight: 600;
 
        }
+
+       .dropbtn {
+
+           font-family: 'EB Garamond', serif;
+       }
+
+       /*
+       .dropdown .dropdown-content {
+           display: block;
+           font-size: 0.4rem;
+           padding-left: -10px;
+
+       }
+*/
+
 
        .dropbtn b {
            font-weight: normal;
            font-style: normal;
-       }
-
-       .dropbtn:hover b {
-           font-weight: normal;
-           font-style: normal;
-
-
-
+           position: absolute;
+           top: 10px;
+           margin-left: 6px;
+           border-left: 4px solid transparent;
+           border-right: 4px solid transparent;
+           border-top: 8px solid rgba(30, 28, 33, 0.42);
        }
 
        .dropdown-content {
-           display: none;
-           position: absolute;
-           padding: 10px;
-
-       }
-
-       .dropdown:hover .dropdown-content {
            display: block;
-           font-size: 0.4rem;
-           background-color: rgba(255, 255, 255, 0.24);
+           position: absolute;
 
        }
 
        #menu .dropdown-content a {
            display: block;
-           font-size: 1.2rem;
-           padding: 5px;
+           font-size: 0.9rem;
+           padding-top: 1px;
            padding-right: 100px;
+           padding-left: 5px;
 
        }
 
-       .dropdown-content a:hover {
-           border-left: 1px solid #000;
-       }
-
-
-       button:active,
-       button:hover,
-       button:visited {
-           text-decoration: underline;
-       }
 
        .dropbtn b {
            position: relative;
@@ -148,28 +173,40 @@
 
        }
 
-       /*******************        OM        ***********************/
+       /*******************        LANDINGPAGE        ***********************/
 
+       #splash {
+           margin: 10px;
+           background-image: url(img/Charlotte_2.jpg);
+           background-position: 10% 10%;
+           background-size: cover;
+           height: 135vw;
+       }
+
+
+       /*******************        OM        ***********************/
        #about {
            display: flex;
            flex-wrap: wrap;
            width: 100vw;
            z-index: 1000;
+           overflow: hidden;
+
 
        }
 
        #about .txt {
-           flex-basis: 500px;
+           flex-basis: 400px;
            flex-grow: 1;
-           margin: 4vw;
+           margin: 8vw 8vw;
            z-index: 10000;
 
        }
 
        #about .img {
-           flex-basis: 500px;
+           flex-basis: 350px;
            flex-grow: 1;
-           margin: 4vw;
+           margin: 4vw 8vw 3vw 1vw;
            z-index: 10000;
        }
 
@@ -181,37 +218,34 @@
 
        }
 
-       #om #graphics {
 
-           background-image: url(img/graphic.svg);
-           position: absolute;
-           background-size: cover;
-           top: 1200px;
-           left: -300px;
-           width: 41vw;
-           height: 50.3vw;
-           transform: rotate(230deg);
-           z-index: 100;
-           overflow: hidden;
-
-       }
 
        /*******************        VÆRKER        ***********************/
 
        button {
            border: none;
            background: none;
-           display: block;
-           font-size: 1.5rem;
-           margin: 0;
+           display: inline-block;
+           font-size: 0.8rem;
+           margin: 10px;
            padding: 0;
+
        }
 
        #knapper {
-           margin: 0 37vw;
-           text-align: center;
-           font-size: 1.2rem;
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: center;
+           margin: 0;
 
+       }
+
+       .hidden {
+           display: none;
+       }
+
+       .alle {
+           display: none;
        }
 
        main {
@@ -228,11 +262,27 @@
 
        }
 
+       #grid .aarstal {
+           display: none;
+       }
+
        /*******************        PRESSE        ***********************/
 
        .press {
-           margin: 8vw;
+           margin: 8vw 8vw;
        }
+
+       /*******************        CV        ***********************/
+
+
+       #cv {
+           display: flex;
+           justify-content: center;
+           margin: 4vw 2vw;
+           overflow: hidden;
+           padding: 2rem;
+       }
+
 
 
 
@@ -258,16 +308,48 @@
 
            #menu {
                display: flex;
-               justify-content: space-between;
+               justify-content: space-around;
                align-items: center;
-               margin: 20px 300px 30px 300px;
+               margin: 0px 300px 0px 300px;
 
            }
 
-           #menu a {
+           #menu li {
                font-size: 1.5rem;
                text-transform: capitalize;
            }
+
+           #menu img {
+               width: 20vw;
+           }
+
+           #menu a,
+           .dropbtn {
+               font-size: 1.2rem;
+               font-weight: 600;
+
+           }
+
+
+           .dropdown:hover {
+               /*    transform: scale(1.07);*/
+               transition: 1.5;
+
+           }
+
+           .dropbtn:hover b {
+               font-weight: normal;
+               font-style: normal;
+
+           }
+
+           .dropdown:hover .dropdown-content {
+               display: block;
+               font-size: 0.4rem;
+               padding-left: -10px;
+
+           }
+
 
 
 
@@ -276,16 +358,16 @@
 
 
            #splash {
-               text-align: center;
-
                margin: 0 auto;
                margin-bottom: 50px;
-               background-image: url(img/2008_03.jpg);
-               background-position: center;
+               background-image: url(img/Charlotte_2.jpg);
+               background-position: 90% 10%;
                background-size: cover;
-               height: 35vw;
-               width: 70vw;
+               height: 40vw;
+               width: 85vw;
            }
+
+
 
            /*******************        VÆRKER        ***********************/
 
@@ -298,18 +380,23 @@
            }
 
            main {
-               margin: 80px 200px;
+               margin: 8vw 18vw;
 
 
            }
 
-           #grid {
+           #vaerker #grid {
                columns: 4;
                column-fill: balance;
                grid-gap: 1rem;
                text-align: bottom right;
                margin: 0 auto;
+               z-index: 1;
 
+           }
+
+           .gallery {
+               z-index: 1;
            }
 
            #knapper {
@@ -321,7 +408,7 @@
            }
 
 
-           .aarstal {
+           #grid .aarstal {
                font-size: 0.3rem;
                font-style: italic;
                font-family: sans-serif;
@@ -330,6 +417,73 @@
 
            .valgt {
                display: none;
+
+           }
+
+           #vaerker #graphics {
+               background-image: url(img/sortsky.svg);
+               position: absolute;
+               background-size: cover;
+               top: 550px;
+               right: -140px;
+               width: 31vw;
+               height: 24.3vw;
+               z-index: 1000;
+               transform: rotate(90deg);
+               overflow: hidden;
+
+           }
+
+           #vaerker #graphics2 {
+               background-image: url(img/sortsky.svg);
+               position: absolute;
+               background-size: cover;
+               top: -50px;
+               left: -160px;
+               width: 31vw;
+               height: 24.3vw;
+               z-index: 1000;
+               transform: rotate(10deg);
+               filter: saturate(2);
+               overflow: hidden;
+           }
+
+           #vaerker #graphics3 {
+               background-image: url(img/sortsky.svg);
+               position: absolute;
+               background-size: cover;
+               top: 1850px;
+               left: -360px;
+               width: 51vw;
+               height: 40.3vw;
+               z-index: 100;
+               transform: rotate(60deg);
+               filter: saturate(2);
+               overflow: hidden;
+           }
+
+           /*******************        OM        ***********************/
+
+           #about .txt {
+               flex-basis: 400px;
+               flex-grow: 1;
+               margin: 0 2vw 0 8vw;
+               z-index: 10000;
+
+           }
+
+           #om #graphics {
+
+               background-image: url(img/graphic.svg);
+               position: absolute;
+               background-size: cover;
+               top: 1200px;
+               left: -300px;
+               width: 41vw;
+               height: 50.3vw;
+               transform: rotate(230deg);
+               z-index: 100;
+               overflow: hidden;
 
            }
 
@@ -343,6 +497,7 @@
                right: -750px;
                width: 101vw;
                height: 82.3vw;
+               overflow: hidden;
 
            }
 
@@ -355,12 +510,12 @@
                z-index: 1000;
                overflow: hidden;
 
-
            }
 
            .press {
                overflow: visible;
                z-index: 10000;
+               margin: 0vw;
            }
 
            .press img {
@@ -368,9 +523,46 @@
            }
 
 
-
-
            /*******************        CV        ***********************/
+
+
+           #cv {
+               display: flex;
+               justify-content: center;
+               margin: 0 auto;
+
+           }
+
+           #cv_body #graphics2 {
+
+               background-image: url(img/sortsky.svg);
+               position: absolute;
+               background-size: cover;
+               background-position: 0% 90%;
+               top: 200px;
+               right: 00px;
+               width: 35vw;
+               height: 50.3vw;
+               z-index: 100;
+               overflow: hidden;
+
+           }
+
+
+           #cv_body #graphics3 {
+
+               background-image: url(img/sortsky.svg);
+               position: absolute;
+               background-size: cover;
+               top: 700px;
+               left: -300px;
+               width: 41vw;
+               height: 50.3vw;
+               transform: rotate(230deg);
+               z-index: 100;
+               overflow: hidden;
+
+           }
 
 
 
@@ -395,63 +587,61 @@
            }
 
 
+           /*******************        SINGLEVIEW        ***********************/
+
+
+
+           #single {
+               display: flex;
+               flex-wrap: wrap;
+               margin-top: 0;
+               justify-content: center;
+
+           }
+
+           #single .billede {
+
+               max-width: 80%;
+           }
+
+           #single .aarstal {
+               text-align: center;
+           }
+
+           #single .id {
+               display: none;
+           }
+
+           .tilbage {
+               margin-top: 0;
+               padding-bottom: 10px;
+               position: absolute;
+               top: 170px;
+               left: 100px;
+               font-size: 1.2rem;
+           }
+
+
+
            /*******************        ANIMATIONER        ***********************/
-           .gooey {
-               position: absolute;
-               top: 50%;
-               left: 50%;
-               width: 142px;
-               height: 40px;
-               margin: -20px 0 0 -71px;
-               background: white;
-               filter: contrast(20);
+
+           .no-js #loader {
+               display: none;
            }
 
-
-           .dot {
-               position: absolute;
-               width: 16px;
-               height: 16px;
-               top: 12px;
-               left: 15px;
-               filter: blur(4px);
-               background: #000;
-               border-radius: 50%;
-               transform: translateX(0);
-               animation: dot 2.8s infinite;
-           }
-
-
-
-           .dots {
-               transform: translateX(0);
-               margin-top: 12px;
-               margin-left: 31px;
-               animation: dots 2.8s infinite;
-           }
-
-           span {
+           .js #loader {
                display: block;
-               float: left;
-               width: 16px;
-               height: 16px;
-               margin-left: 16px;
-               filter: blur(4px);
-               background: #000;
-               border-radius: 50%;
-
+               position: absolute;
+               left: 100px;
+               top: 0;
            }
 
-           @keyframes dot {
-               50% {
-                   transform: translateX(96px);
-               }
+           .se-pre-con {
+               position: fixed;
+               left: 0px;
+               top: 0px;
+               width: 100%;
+               height: 100%;
+               z-index: 9999;
+               background: url(http://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
            }
-
-           @keyframes dots {
-               50% {
-                   transform: translateX(-31px);
-               }
-           }
-
-       }

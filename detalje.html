@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav></nav>
+    </header>
+
+
+    <main id="single">
+        <figure class="tilbage">⬅︎
+            <figcaption>Tilbage</figcaption>
+        </figure>
+        <section class="gallery">
+            <img class="billede" src="" alt="">
+            <h3 class="aarstal"></h3>
+            <p class="id"></p>
+        </section>
+    </main>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let id = urlParams.get("id");
+        let indhold;
+
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+
+            hentMenu();
+            hentFooter();
+            hentJson();
+        }
+
+        async function hentMenu() {
+
+            const voresMenu = await fetch("menu.html");
+            let denHentede = await voresMenu.text();
+            document.querySelector("nav").innerHTML = denHentede;
+            console.log("nav");
+            //    document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+        }
+
+        async function hentFooter() {
+
+            const voresMenu = await fetch("footer.html");
+            let denHentede = await voresMenu.text();
+            document.querySelector("footer").innerHTML = denHentede;
+            //            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+
+        }
+        //Henter Json fil i asynkron fuction
+        async function hentJson() {
+            //henter data filen
+            const url = "http://malikgrosos.com/charlottekrogh/wordpress/wp-json/wp/v2/vaerk?per_page=100"
+            // den hentede data skal hentes som json
+            const myJson = await fetch(url);
+            //            // den hentede data skal tolkes som json
+            indhold = await myJson.json();
+            //            //kald funktion der viser data i DOM
+            visIndhold();
+        }
+
+        function visIndhold() {
+
+
+            console.log(id);
+
+            indhold.forEach(vaerk => {
+
+                if (vaerk.id == id) {
+
+                    console.log(vaerk.billede.guid);
+                    document.querySelector(".billede").src = vaerk.billede.guid;
+                    document.querySelector(".id").textContent = vaerk.id;
+                    document.querySelector(".aarstal").textContent = vaerk.aar;
+                    document.querySelector(".tilbage").addEventListener("click", () => {
+
+                        window.history.back();
+                    })
+
+
+                }
+
+
+
+            })
+
+        }
+    </script>
+
+    <footer></footer>
+</body></html>
