@@ -191,11 +191,11 @@ function toggleMenu() {
 
     if (erSkjult == true) {
 
-        document.querySelector(".dropdown-content").style.display = "block";
+        document.querySelector(".dropdown-content").style.display = "none";
 
     } else {
 
-        document.querySelector(".dropdown-content").style.display = "none";
+        document.querySelector(".dropdown-content").style.display = "block";
 
     }
 }
