@@ -1,17 +1,15 @@
 document.addEventListener("DOMContentLoaded", start);
 
-const urlParams = new URLSearchParams(window.location.search);
-let id = urlParams.get("url");
 
-let filter = "alle";
+let filter = "ler";
 let indhold;
 const template = document.querySelector("template");
 const dest = document.querySelector("#grid");
 const dest2 = document.querySelector("#press");
-const dest3 = document.querySelector("#cv");
-
+const dest3 = document.querySelector(".cvtekst");
 
 function start() {
+
 
     hentMenu();
     hentFooter();
@@ -21,9 +19,6 @@ function start() {
 
     const filtrer = document.querySelectorAll(".filter");
     filtrer.forEach(knap => knap.addEventListener("click", filtrerBilleder));
-
-
-
 
 }
 
@@ -51,7 +46,7 @@ async function hentFooter() {
 async function hentPresse() {
 
     //Henter vores Json fra WP
-    const url = "http://malikgrosos.com/charlottekrogh/wordpress/wp-json/wp/v2/press?per_page=100"
+    const url = "http://malikgrosos.com/charlottekrogh/wordpress/wp-json/wp/v2/presse?per_page=100"
     //Henter datafilen
     const minJson = await fetch(url);
     //Den hentede data skal tolkes som json
@@ -77,7 +72,12 @@ async function hentCv() {
 async function hentGalleri() {
 
     //Henter vores Json fra WP
-    const url = "http://malikgrosos.com/charlottekrogh/wordpress/wp-json/wp/v2/vaerk?per_page=100"
+    const site = "https://www.malikgrosos.com/charlottekrogh/"
+
+    const json = "wordpress/wp-json/wp/v2/vaerker?per_page=100"
+
+    const url = `${site}` + `${json}`;
+
     //Henter datafilen
     const minJson = await fetch(url);
     //Den hentede data skal tolkes som json
@@ -107,27 +107,27 @@ function filtrerBilleder() {
 function visIndhold() {
 
 
-    dest.innerHTML = "";
+    dest.innerHTML = ""; //fjerne alt indhold fra destinations variabel
 
-    indhold.forEach(vaerk => {
-        console.log(filter);
+    indhold.forEach(vaerk => { //for hver objekt i vores Array skal det næste gælde
+        console.log(vaerk.kategori[0]);
 
 
-        if (vaerk.aar == filter || filter == "alle") { // Filtrere kategorier og kunstnernavn
+        if (vaerk.kategori[0] == filter || filter == "ler") { //Kun hvis filter er det samme som kategori ELLERS er filter = alle.
+            const klon = template.cloneNode(true).content; //kloner template
 
-            const klon = template.cloneNode(true).content;
-
-            klon.querySelector("img").src = vaerk.billede.guid;
-            klon.querySelector(".aarstal").innerHTML = vaerk.aar;
+            klon.querySelector("img").src = vaerk.billede.guid; //lader klonet selector være = Jsondata
+            //            klon.querySelector(".aarstal").innerHTML = vaerk.aar;
+            klon.querySelector(".kategori").innerHTML = vaerk.kategori[0];
+            klon.querySelector(".id").innerHTML = vaerk.id[0];
             klon.querySelector("img").addEventListener("click", () => {
 
 
                 visDetalje(vaerk);
 
-
             })
 
-            dest.appendChild(klon);
+            dest.appendChild(klon); //indsætter klon i vores destinations variabel.
 
         }
 
@@ -143,8 +143,9 @@ function visPresse() {
         const klon = template.cloneNode(true).content;
 
         klon.querySelector("img").src = vaerk.article.guid;
-        klon.querySelector(".titel").textContent = vaerk.titel;
+        //        klon.querySelector(".titel").textContent = vaerk.titel;
         klon.querySelector("a").href = vaerk.url;
+
 
         dest2.appendChild(klon);
 
@@ -155,6 +156,7 @@ function husetAsnaes(vaerk) {
     console.log("huset i asnæs")
 
     location.href = urlLink;
+    link.target = '_blank';
 }
 
 
@@ -172,7 +174,6 @@ function visCv() {
 }
 
 
-
 function visDetalje(vaerk) {
     console.log(visDetalje);
 
@@ -184,23 +185,20 @@ function visDetalje(vaerk) {
 function toggleMenu() {
     console.log("click menu");
 
-    document.querySelector(".dropdown-content").classList.toggle("hidden");
+    document.querySelector("#menu").classList.toggle("hidden");
 
 
-    let erSkjult = document.querySelector(".dropdown-content").classList.contains("hidden");
+    let erSkjult = document.querySelector("#menu").classList.contains("hidden");
 
     if (erSkjult == true) {
 
-        document.querySelector(".dropdown-content").style.display = "none";
+        document.querySelector(".dropbtn").textContent = "☰";
+        console.log("closed")
 
     } else {
 
-        document.querySelector(".dropdown-content").style.display = "block";
+        console.log("open");
+        document.querySelector(".dropbtn").textContent = "X";
 
     }
 }
-
-
-$(window).load(function () {
-    $(".se-pre-con").fadeOut("slow");;
-});

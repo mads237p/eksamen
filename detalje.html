@@ -22,6 +22,7 @@
         <section class="gallery">
             <img class="billede" src="" alt="">
             <h3 class="aarstal"></h3>
+            <h3 class="kategori"></h3>
             <p class="id"></p>
         </section>
     </main>
@@ -61,7 +62,7 @@
         //Henter Json fil i asynkron fuction
         async function hentJson() {
             //henter data filen
-            const url = "http://malikgrosos.com/charlottekrogh/wordpress/wp-json/wp/v2/vaerk?per_page=100"
+            const url = "http://malikgrosos.com/charlottekrogh/wordpress/wp-json/wp/v2/vaerker?per_page=100"
             // den hentede data skal hentes som json
             const myJson = await fetch(url);
             //            // den hentede data skal tolkes som json
@@ -83,6 +84,7 @@
                     document.querySelector(".billede").src = vaerk.billede.guid;
                     document.querySelector(".id").textContent = vaerk.id;
                     document.querySelector(".aarstal").textContent = vaerk.aar;
+                    document.querySelector(".kategori").textContent = vaerk.kategori;
                     document.querySelector(".tilbage").addEventListener("click", () => {
 
                         window.history.back();

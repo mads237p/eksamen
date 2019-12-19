@@ -6,46 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Charlotte Krogh</title>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-
+    <title>Charlotte Krogh - Billedkunstner</title>
 
 </head>
 
-
-
 <body>
-    <div class="se-pre-con"></div>
 
     <header>
         <nav></nav>
     </header>
 
+    <h1>Værker</h1>
+
     <main id="vaerker">
-        <section id="graphics"> </section>
-        <section id="graphics2"> </section>
 
         <article id="knapper">
-            <button class="alle filter valgt" data-filter="alle">Alle</button>
-            <button data-filter="2019" class="filter">2019</button>
-            <button data-filter="2012" class="filter">2012</button>
-            <button data-filter="2009" class="filter">2009</button>
-            <button data-filter="2008" class="filter">2008</button>
-            <button data-filter="2006" class="filter">2006</button>
-            <button data-filter="2004" class="filter">2004</button>
-        </article>
-        <section id="grid"></section>
 
+            <!--           //Filtreringsknap som fjerne alle filtre.-->
+
+            <!--            <button class="alle filter valgt" data-filter="ler">Alle</button>-->
+
+            <!--            //Har data-filteret ler, som bliver hentet i filtrering i JS.-->
+
+            <button data-filter="ler" class="filter">ler</button>
+            <button data-filter="kalk" class="filter">kalk</button>
+            <button data-filter="papir" class="filter">papir</button>
+            <button data-filter="tegninger" class="filter">tegninger</button>
+
+        </article>
+
+        <!-- Destinationen for vores Array-->
+
+        <section id="grid"></section>
     </main>
 
+    <!--// Dette er vores klon - Er samle det materiale der skal klones,
 
+    men alt inde i dette tag er usynligt.-->
     <template>
+
+        <!--       //parent vores materiale, så det kan organiseres.-->
+
         <article class="gallery">
+
+            <!--           //Billede fra klon bliver puttet ind her-->
+
             <img class="billede" src="" alt="">
-            <p class="aarstal"></p>
+
+            <!--            // Kategorien som json elementet har, bliver puttet ind her. //-->
+
+            <p class="kategori"></p>
+            <p class="id"></p>
+
         </article>
+
+
+
+
     </template>
 
     <!--
@@ -60,9 +77,5 @@
 -->
 
     <footer></footer>
-    <script src="script.js">
-
-    </script>
-</body>
-
-</html>
+    <script src="script.js"> </script>
+</body></html>
