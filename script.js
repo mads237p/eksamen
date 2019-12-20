@@ -8,22 +8,34 @@ const dest = document.querySelector("#grid");
 const dest2 = document.querySelector("#press");
 const dest3 = document.querySelector(".cvtekst");
 
+let loader = document.querySelector("body").classList.add("fadeIn");
+
+
 function start() {
 
+    window.addEventListener("load", (loader) =>
 
-    hentMenu();
-    hentFooter();
-    hentGalleri();
-    hentPresse();
-    hentCv();
+        {
+            console.log('page is fully loaded');
+            const filtrer = document.querySelectorAll(".filter");
+            filtrer.forEach(knap => knap.addEventListener("click", filtrerBilleder));
 
-    const filtrer = document.querySelectorAll(".filter");
-    filtrer.forEach(knap => knap.addEventListener("click", filtrerBilleder));
+
+            hentMenu();
+            hentFooter();
+            hentPresse();
+            hentCv();
+            hentGalleri();
+
+        })
+
+
 
 }
 
 
 async function hentMenu() {
+
 
     const voresMenu = await fetch("menu.html");
     let denHentede = await voresMenu.text();
@@ -31,7 +43,33 @@ async function hentMenu() {
     console.log("nav");
     document.querySelector("#menuknap").addEventListener("click", toggleMenu);
 
+    let menubtn = document.querySelectorAll("#menu .dropdown-content a");
+
+    menubtn.forEach(valgt => valgt.addEventListener("click", () => {
+
+        let valgt = document.querySelector(".valgt");
+
+        valgt.classList.remove("valgt");
+
+        this.classList.add("valgt");
+
+
+    }));
+
+
 }
+
+//function styleHeader() {
+//    console.log("click")
+//
+//    let valgt = document.querySelector(".valgt");
+//
+//    valgt.classList.remove("valgt");
+//
+//    this.classList.add("valgt");
+//}
+
+
 
 
 async function hentFooter() {
@@ -71,6 +109,9 @@ async function hentCv() {
 
 async function hentGalleri() {
 
+
+
+
     //Henter vores Json fra WP
     const site = "https://www.malikgrosos.com/charlottekrogh/"
 
@@ -92,13 +133,14 @@ function filtrerBilleder() {
 
     //Sæt variable filter til aktuel værdi
 
-    //    let valgt = document.querySelector(".valgt");
+    let valgt = document.querySelector(".valgt");
 
-    //    valgt.classList.remove("valgt");
+    valgt.classList.remove("valgt");
 
     filter = this.dataset.filter;
 
-    //    this.classList.add("valgt");
+    this.classList.add("valgt");
+
 
     visIndhold();
 
@@ -133,6 +175,7 @@ function visIndhold() {
 
 
     })
+
 }
 
 

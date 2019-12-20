@@ -65,6 +65,7 @@
        }
 
        a,
+       a:link,
        a:visited {
            font-family: 'roboto', sans-serif;
            font-weight: 100;
@@ -72,10 +73,12 @@
            color: #1E1C21;
        }
 
-       a:active {
+       #menu a:active,
+       #menu a:active {
            color: #A6998A;
-           font-weight: 600;
+           font-weight: bold;
        }
+
 
        button:active,
        button:hover,
@@ -262,6 +265,7 @@
 
        }
 
+
        /*
            #about p {
                padding: 0 2vw;
@@ -283,7 +287,42 @@
            -ms-flex-positive: 2;
            flex-grow: 2;
            margin: 0 8vw;
+           position: relative;
+           overflow: hidden;
+           padding-top: 56.25%;
+           top: 100px;
 
+       }
+
+
+       form {
+           display: -webkit-box;
+           display: -ms-flexbox;
+           display: flex;
+           -ms-flex-wrap: wrap;
+           flex-wrap: wrap;
+       }
+
+       input {
+           border: 1px solid #e2e2e2;
+           height: 30px;
+           width: 200px;
+           margin: 5px;
+
+       }
+
+       form #besked {
+           text-align: start;
+           width: 220px;
+           height: 100px;
+           margin: 10px;
+           border: 1px solid #e2e2e2;
+       }
+
+       form #send {
+
+           border-radius: 5px;
+           box-shadow: 0.1vw 0.1vw 0.1vw 0.1vw #ebebeb;
        }
 
 
@@ -312,6 +351,10 @@
            margin: 0;
 
 
+       }
+
+       .gallery {
+           cursor: pointer;
        }
 
 
@@ -391,21 +434,16 @@
            display: flex;
            -ms-flex-wrap: wrap;
            flex-wrap: wrap;
-           -webkit-box-pack: center;
-           -ms-flex-pack: center;
-           justify-content: center;
-           -webkit-box-align: center;
-           -ms-flex-align: center;
-           align-items: center;
+
        }
 
        #contact .txt {
-           -ms-flex-preferred-size: 500px;
-           flex-basis: 500px;
+           -ms-flex-preferred-size: 200px;
+           flex-basis: 200px;
            -webkit-box-flex: 1;
            -ms-flex-positive: 1;
-           flex-grow: 1;
-           padding: 0 10vw;
+           flex-grow: 2;
+           padding: 10vw 5vw;
 
        }
 
@@ -415,12 +453,12 @@
            }*/
 
        #contact .img {
-           -ms-flex-preferred-size: 250px;
-           flex-basis: 250px;
+           -ms-flex-preferred-size: 350px;
+           flex-basis: 350px;
            -webkit-box-flex: 1;
            -ms-flex-positive: 1;
            flex-grow: 1;
-           margin: 4vw 2vw 3vw 2vw;
+           margin: 2vw 1vw 2vw 4vw;
        }
 
        #contact h2 {
@@ -643,9 +681,15 @@
            }
 
 
+
+
            .alle {
                display: none;
 
+           }
+
+           .valgt {
+               text-decoration: underline;
            }
 
            /*******************        OM        ***********************/
@@ -736,24 +780,26 @@
 
            /******************* CONTACT *************************/
 
+           /*
            #contact .txt {
-               -ms-flex-preferred-size: 500px;
-               flex-basis: 500px;
+               -ms-flex-preferred-size: 200px;
+               flex-basis: 200px;
                -webkit-box-flex: 1;
                -ms-flex-positive: 1;
                flex-grow: 1;
-               padding: 0 10vw 0 10vw;
+               padding: 0 10vw 0 5vw;
 
            }
 
            #contact .img {
-               -ms-flex-preferred-size: 250px;
-               flex-basis: 250px;
+               -ms-flex-preferred-size: 350px;
+               flex-basis: 350px;
                -webkit-box-flex: 1;
                -ms-flex-positive: 1;
                flex-grow: 1;
                margin: 4vw 2vw 3vw 10vw;
            }
+*/
 
 
 
@@ -836,18 +882,25 @@
            }
 
            input {
-               border: 1px solid #000;
-               height: 40px;
+               border: 1px solid #e2e2e2;
+               height: 30px;
                width: 200px;
-               margin: 10px;
+               margin: 5px;
 
            }
 
            form #besked {
                text-align: start;
                width: 420px;
-               height: 220px;
+               height: 100px;
                margin: 10px;
+               border: 1px solid #e2e2e2;
+           }
+
+           form #send {
+
+               border-radius: 5px;
+               box-shadow: 0.1vw 0.1vw 0.1vw 0.1vw #ebebeb;
            }
 
 
@@ -855,92 +908,89 @@
 
            /*******************        ANIMATIONER        ***********************/
 
-           .no-js #loader {
-               display: none;
-           }
+           .fadeIn {
 
-           .js #loader {
-               display: block;
-               position: absolute;
-               left: 100px;
-               top: 0;
-           }
-
-           .se-pre-con {
-               position: fixed;
-               left: 0px;
-               top: 0px;
-               width: 100%;
-               height: 100%;
-               z-index: 9999;
-               background: url(http://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
-           }
-       }
-
-       @media screen and (min-width: 800px) {
-
-           /*******************        LANDINGPAGE        ***********************/
-
-           #splash {
-               margin: 10px;
-               background-image: url(img/Charlotte_2.jpg);
-               background-position: 50% 10%;
-               background-size: cover;
-               width: 95%;
-               height: 570px;
-               margin: 0 auto;
-               display: -webkit-box;
-               display: -ms-flexbox;
-               display: flex;
-               -webkit-box-pack: center;
-               -ms-flex-pack: center;
-               justify-content: center;
-               -webkit-box-align: center;
-               -ms-flex-align: center;
-               align-items: center;
+               animation-name: fadeIn;
+               animation-duration: 1.5s;
+               animation-timing-function: ease-in-out;
 
            }
 
+           @keyframes fadeIn {
 
-           #landing {
-               overflow: hidden;
+               0% {
+                   opacity: 0;
+               }
+
+               100% {
+                   opacity: 1;
+               }
            }
 
-           .dropbtn {
-               display: none;
+           @media screen and (min-width: 800px) {
+
+               /*******************        LANDINGPAGE        ***********************/
+
+               #splash {
+                   margin: 10px;
+                   background-image: url(img/Charlotte_2.jpg);
+                   background-position: 50% 10%;
+                   background-size: cover;
+                   width: 95%;
+                   height: 570px;
+                   margin: 0 auto;
+                   display: -webkit-box;
+                   display: -ms-flexbox;
+                   display: flex;
+                   -webkit-box-pack: center;
+                   -ms-flex-pack: center;
+                   justify-content: center;
+                   -webkit-box-align: center;
+                   -ms-flex-align: center;
+                   align-items: center;
+
+               }
+
+
+               #landing {
+                   overflow: hidden;
+               }
+
+               .dropbtn {
+                   display: none;
+
+               }
+
+               #menu .instagramlogo {
+                   /* display: flex; */
+                   position: absolute;
+                   right: -30vw;
+
+               }
 
            }
 
-           #menu .instagramlogo {
-               /* display: flex; */
-               position: absolute;
-               right: -30vw;
+           @media screen and (min-width: 1000px) {
+
+
+               #menu .instagramlogo {
+                   /* display: flex; */
+                   position: absolute;
+                   right: -40vw;
+
+               }
 
            }
 
-       }
 
-       @media screen and (min-width: 1000px) {
-
-
-           #menu .instagramlogo {
-               /* display: flex; */
-               position: absolute;
-               right: -40vw;
-
-           }
-
-       }
+           @media screen and (min-width: 1200px) {
 
 
-       @media screen and (min-width: 1200px) {
+               #menu .instagramlogo {
+                   /* display: flex; */
+                   position: absolute;
+                   right: -50vw;
 
-
-           #menu .instagramlogo {
-               /* display: flex; */
-               position: absolute;
-               right: -50vw;
+               }
 
            }
-
-       }
